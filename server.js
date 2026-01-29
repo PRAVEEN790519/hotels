@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 
 // ======================
+//const mongoURL = process.env.NONGODB_URL_LOCAL
+const PORT = process.env.PORT || 3000;
 // Models
 // ======================
 const Person = require('./models/person');
@@ -78,9 +81,10 @@ app.get('/persons/:workType', async (req, res) => {
 app.use('/menu', menuItemRoutes);
 
 // ======================
+
+
 // SERVER START
 // ======================
-const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
